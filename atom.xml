@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[yidianfengfan Blog]]></title>
   <link href="http://yidianfengfan.github.io/atom.xml" rel="self"/>
   <link href="http://yidianfengfan.github.io/"/>
-  <updated>2014-03-04T19:35:23+08:00</updated>
+  <updated>2014-03-04T19:44:58+08:00</updated>
   <id>http://yidianfengfan.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[yidianfengfan]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -97,10 +97,20 @@
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>rake setup_github_pages
+</span><span class='line'><span class="c"># 链接到github</span>
+</span><span class='line'><span class="c"># edit _config.yml </span>
+</span><span class='line'><span class="c"># /source/_includes/custom/head.html</span>
+</span><span class='line'>
 </span><span class='line'>
 </span><span class='line'>rake generate
 </span><span class='line'>rake deploy
+</span><span class='line'>
 </span><span class='line'>生成博客文件，并将生成的博客文件拷贝到_deploy/目录下，然后将这些内容添加到git中，并commit和push到仓库的master分支。
 </span><span class='line'>
 </span><span class='line'>
@@ -129,6 +139,16 @@
 </span><span class='line'><span class="nv">$ </span>git push origin <span class="nb">source</span>
 </span><span class='line'><span class="nv">$ </span>rake deploy
 </span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li><p>常用</p></li>
+<li><p> rake new_post[‘article name’] 生成博文框架，然后修改生成的文件即可</p></li>
+<li> rake generate 生成静态文件</li>
+<li> rake watch 检测文件变化，实时生成新内容</li>
+<li> rake preview 在本机4000端口生成访问内容</li>
+<li> rake deploy 发布文件</li>
+</ol>
 
 ]]></content>
   </entry>

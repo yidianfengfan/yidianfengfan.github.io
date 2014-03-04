@@ -5,8 +5,8 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>My Octopress Blog</title>
-  <meta name="author" content="Your Name">
+  <title>yidianfengfan Blog</title>
+  <meta name="author" content="yidianfengfan">
 
   
   <meta name="description" content="安装依赖 1
@@ -22,14 +22,16 @@ sudo /usr/bin/apt-get install build-essential openssl libreadline6 libreadline6-
   <link rel="canonical" href="http://yidianfengfan.github.io">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="yidianfengfan Blog" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
 
   
 
@@ -37,7 +39,7 @@ sudo /usr/bin/apt-get install build-essential openssl libreadline6 libreadline6-
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">My Octopress Blog</a></h1>
+  <h1><a href="/">yidianfengfan Blog</a></h1>
   
     <h2>A blogging framework for hackers.</h2>
   
@@ -174,10 +176,20 @@ sudo /usr/bin/apt-get install build-essential openssl libreadline6 libreadline6-
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>rake setup_github_pages
+</span><span class='line'><span class="c"># 链接到github</span>
+</span><span class='line'><span class="c"># edit _config.yml </span>
+</span><span class='line'><span class="c"># /source/_includes/custom/head.html</span>
+</span><span class='line'>
 </span><span class='line'>
 </span><span class='line'>rake generate
 </span><span class='line'>rake deploy
+</span><span class='line'>
 </span><span class='line'>生成博客文件，并将生成的博客文件拷贝到_deploy/目录下，然后将这些内容添加到git中，并commit和push到仓库的master分支。
 </span><span class='line'>
 </span><span class='line'>
@@ -206,6 +218,16 @@ sudo /usr/bin/apt-get install build-essential openssl libreadline6 libreadline6-
 </span><span class='line'><span class="nv">$ </span>git push origin <span class="nb">source</span>
 </span><span class='line'><span class="nv">$ </span>rake deploy
 </span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li><p>常用</p></li>
+<li><p> rake new_post[‘article name’] 生成博文框架，然后修改生成的文件即可</p></li>
+<li> rake generate 生成静态文件</li>
+<li> rake watch 检测文件变化，实时生成新内容</li>
+<li> rake preview 在本机4000端口生成访问内容</li>
+<li> rake deploy 发布文件</li>
+</ol>
 
 </div>
   
@@ -243,7 +265,7 @@ sudo /usr/bin/apt-get install build-essential openssl libreadline6 libreadline6-
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Your Name -
+  Copyright &copy; 2014 - yidianfengfan -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
@@ -255,16 +277,6 @@ sudo /usr/bin/apt-get install build-essential openssl libreadline6 libreadline6-
 
 
 
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
 
 
 
