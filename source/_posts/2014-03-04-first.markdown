@@ -39,9 +39,14 @@ rake install
 4. [Deploying to Github Pages](http://octopress.org/docs/deploying/github/)
 ```
 rake setup_github_pages
+# 链接到github
+# edit _config.yml 
+# /source/_includes/custom/head.html
+
 
 rake generate
-rake deploy 
+rake deploy
+ 
 生成博客文件，并将生成的博客文件拷贝到_deploy/目录下，然后将这些内容添加到git中，并commit和push到仓库的master分支。
 
 
@@ -61,4 +66,18 @@ source提交到仓库的source分支
     $ git commit -am "Some comment here."   
     $ git push origin source  
     $ rake deploy  
+
 ```
+
+6. 常用
+ 
+-    rake new_post[‘article name’] 生成博文框架，然后修改生成的文件即可
+-    rake generate 生成静态文件
+-    rake watch 检测文件变化，实时生成新内容
+-    rake preview 在本机4000端口生成访问内容
+-    rake deploy 发布文件
+
+7.参考
+[devtang](http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/)
+
+
