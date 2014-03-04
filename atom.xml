@@ -4,7 +4,7 @@
   <title><![CDATA[yidianfengfan Blog]]></title>
   <link href="http://yidianfengfan.github.io/atom.xml" rel="self"/>
   <link href="http://yidianfengfan.github.io/"/>
-  <updated>2014-03-04T19:44:58+08:00</updated>
+  <updated>2014-03-04T19:54:35+08:00</updated>
   <id>http://yidianfengfan.github.io/</id>
   <author>
     <name><![CDATA[yidianfengfan]]></name>
@@ -150,6 +150,9 @@
 <li> rake deploy 发布文件</li>
 </ol>
 
+
+<p>7.参考
+<a href="http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/">devtang</a></p>
 ]]></content>
   </entry>
   
