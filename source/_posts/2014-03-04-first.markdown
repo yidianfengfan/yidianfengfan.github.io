@@ -1,0 +1,64 @@
+---
+layout: post
+title: "first"
+date: 2014-03-04 19:34:33 +0800
+comments: true
+categories: 
+---
+
+1. 安装依赖
+```bash
+sudo /usr/bin/apt-get install build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion
+```
+
+2. 安装ruby
+```bash
+cd
+git clone git://github.com/sstephenson/rbenv.git .rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+source ~/.bash_profile 
+```
+```bash
+rbenv install 1.9.3-p0
+rbenv local 1.9.3-p0 #rbenv global 1.9.3-p0
+rbenv rehash 
+```  
+
+3. Setup Octopress
+```
+git clone git://github.com/imathis/octopress.git octopress
+cd octopress 
+gem install bundler
+rbenv rehash # If you use rbenv, rehash to be able to run the bundle command
+bundle install 
+
+rake install
+```
+4. [Deploying to Github Pages](http://octopress.org/docs/deploying/github/)
+```
+rake setup_github_pages
+
+rake generate
+rake deploy 
+生成博客文件，并将生成的博客文件拷贝到_deploy/目录下，然后将这些内容添加到git中，并commit和push到仓库的master分支。
+
+
+git add .
+git commit -m 'your message'
+git push origin source 
+source提交到仓库的source分支
+
+
+```
+
+5. blog
+```
+    $ rake new_post["New Post"]  
+    $ rake generate  
+    $ git add .  
+    $ git commit -am "Some comment here."   
+    $ git push origin source  
+    $ rake deploy  
+```
