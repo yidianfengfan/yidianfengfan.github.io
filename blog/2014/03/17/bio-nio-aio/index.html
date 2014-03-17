@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>yidianfengfan Blog</title>
+  <title>Bio Nio Aio - yidianfengfan Blog</title>
   <meta name="author" content="yidianfengfan">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://yidianfengfan.github.io">
+  <link rel="canonical" href="http://yidianfengfan.github.io/blog/2014/03/17/bio-nio-aio">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="yidianfengfan Blog" type="application/atom+xml">
@@ -65,15 +65,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/03/17/bio-nio-aio/">Bio Nio Aio</a></h1>
+      <h1 class="entry-title">Bio Nio Aio</h1>
     
     
       <p class="meta">
@@ -96,7 +93,7 @@
   </header>
 
 
-  <div class="entry-content"><h3>按照《Unix网络编程》的划分，IO模型可以分为：阻塞IO、非阻塞IO、IO复用、信号驱动IO和异步IO，按照POSIX标准来划分只分为两类：同步IO和异步IO。如何区分呢？首先一个IO操作其实分成了两个步骤：发起IO请求和实际的IO操作，同步IO和异步IO的区别就在于第二个步骤是否阻塞，如果实际的IO读写阻塞请求进程，那么就是同步IO，因此阻塞IO、非阻塞IO、IO复用、信号驱动IO都是同步IO，如果不阻塞，而是操作系统帮你做完IO操作再将结果返回给你，那么就是异步IO。阻塞IO和非阻塞IO的区别在于第一步，发起IO请求是否会被阻塞，如果阻塞直到完成那么就是传统的阻塞IO，如果不阻塞，那么就是非阻塞IO.</h3>
+<div class="entry-content"><h3>按照《Unix网络编程》的划分，IO模型可以分为：阻塞IO、非阻塞IO、IO复用、信号驱动IO和异步IO，按照POSIX标准来划分只分为两类：同步IO和异步IO。如何区分呢？首先一个IO操作其实分成了两个步骤：发起IO请求和实际的IO操作，同步IO和异步IO的区别就在于第二个步骤是否阻塞，如果实际的IO读写阻塞请求进程，那么就是同步IO，因此阻塞IO、非阻塞IO、IO复用、信号驱动IO都是同步IO，如果不阻塞，而是操作系统帮你做完IO操作再将结果返回给你，那么就是异步IO。阻塞IO和非阻塞IO的区别在于第一步，发起IO请求是否会被阻塞，如果阻塞直到完成那么就是传统的阻塞IO，如果不阻塞，那么就是非阻塞IO.</h3>
 
 <h2>bio</h2>
 
@@ -187,22 +184,16 @@
 
 <p>异步IO方式, <a href="http://en.wikipedia.org/wiki/Proactor_pattern">Proactor模式</a>,从程序的角度而言，与NIO不同，当进行读写操作时，只须直接调用API的read或write方法即可。这两种方法均为异步的，对于读操作而言，当有流可读取时，操作系统会将可读的流传入read方法的缓冲区，并通知应用程序；对于写操作而言，当操作系统将write方法传递的流写入完毕时，操作系统主动通知应用程序。较之NIO而言，AIO一方面简化了程序出的编写，流的读取和写入都由操作系统来代替完成；另一方面省去了NIO中程序要遍历事件通知队列（selector）的代价。Windows基于[IOCP](<a href="http://en.wikipedia.org/wiki/Input/output_completion_port%EF%BC%89%E5%AE%9E%E7%8E%B0%E4%BA%86AIO%EF%BC%8CLinux%E7%9B%AE%E5%89%8D%E5%8F%AA%E6%9C%89%E5%9F%BA%E4%BA%8Eepoll%E5%AE%9E%E7%8E%B0%E7%9A%84AIO">http://en.wikipedia.org/wiki/Input/output_completion_port%EF%BC%89%E5%AE%9E%E7%8E%B0%E4%BA%86AIO%EF%BC%8CLinux%E7%9B%AE%E5%89%8D%E5%8F%AA%E6%9C%89%E5%9F%BA%E4%BA%8Eepoll%E5%AE%9E%E7%8E%B0%E7%9A%84AIO</a></p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/04/first/">First</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">yidianfengfan</span></span>
+
+      
 
 
 
@@ -214,161 +205,54 @@
   
 
 
-<time datetime="2014-03-04T19:34:33+08:00" pubdate data-updated="true">Mar 4<span>th</span>, 2014</time>
-        
-      </p>
+<time datetime="2014-03-17T18:15:06+08:00" pubdate data-updated="true">Mar 17<span>th</span>, 2014</time>
+      
+
+
+    </p>
     
-  </header>
+      <div class="sharing">
+  
+  
+  
+  
+  
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_streak_share_32x32" id="jiathis_streak_share" style="display:none">
+<span class="streak_share_jiao"></span>
+<div class="jiathis_streak_goshare" id="jiathis_streak_goshare"><span class="jiathis_streak_txt">分享到</span>  <span style="" title="隐藏分享框" onclick="JIATHIS_STREAK.hideShare()" class="jiathis_streak_close">X</span></div>
+<div class="jiathis_style_32x32" >
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_renren"></a>
+<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>	
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_streak.js" charset="utf-8"></script>
+</div></div>
+<!-- JiaThis Button END -->
+
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1900099"></script>
+<!-- UY END -->
 
 
-  <div class="entry-content"><ol>
-<li>安装依赖</li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo /usr/bin/apt-get install build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ol>
-<li>安装ruby</li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span>
-</span><span class='line'>git clone git://github.com/sstephenson/rbenv.git .rbenv
-</span><span class='line'><span class="nb">echo</span> <span class="s1">&#39;export PATH=&quot;$HOME/.rbenv/bin:$PATH&quot;&#39;</span> &gt;&gt; ~/.bash_profile
-</span><span class='line'><span class="nb">echo</span> <span class="s1">&#39;eval &quot;$(rbenv init -)&quot;&#39;</span> &gt;&gt; ~/.bash_profile
-</span><span class='line'>git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-</span><span class='line'><span class="nb">source</span> ~/.bash_profile
-</span></code></pre></td></tr></table></div></figure>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rbenv install 1.9.3-p0
-</span><span class='line'>rbenv <span class="nb">local </span>1.9.3-p0 <span class="c">#rbenv global 1.9.3-p0</span>
-</span><span class='line'>rbenv rehash
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
-
-<ol>
-<li>Setup Octopress</li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git clone git://github.com/imathis/octopress.git octopress
-</span><span class='line'><span class="nb">cd </span>octopress
-</span><span class='line'>gem install bundler
-</span><span class='line'>rbenv rehash <span class="c"># If you use rbenv, rehash to be able to run the bundle command</span>
-</span><span class='line'>bundle install
-</span><span class='line'>
-</span><span class='line'>rake install
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ol>
-<li><a href="http://octopress.org/docs/deploying/github/">Deploying to Github Pages</a></li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake setup_github_pages
-</span><span class='line'><span class="c"># 链接到github</span>
-</span><span class='line'><span class="c"># edit _config.yml </span>
-</span><span class='line'><span class="c"># /source/_includes/custom/head.html</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>rake generate
-</span><span class='line'>rake deploy
-</span><span class='line'>
-</span><span class='line'>生成博客文件，并将生成的博客文件拷贝到_deploy/目录下，然后将这些内容添加到git中，并commit和push到仓库的master分支。
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>git add .
-</span><span class='line'>git commit -m <span class="s1">&#39;your message&#39;</span>
-</span><span class='line'>git push origin <span class="nb">source </span>
-</span><span class='line'><span class="nb">source</span>提交到仓库的source分支
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ol>
-<li>blog</li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>rake new_post<span class="o">[</span><span class="s2">&quot;New Post&quot;</span><span class="o">]</span>
-</span><span class='line'><span class="nv">$ </span>rake generate
-</span><span class='line'><span class="nv">$ </span>git add .
-</span><span class='line'><span class="nv">$ </span>git commit -am <span class="s2">&quot;Some comment here.&quot;</span>
-</span><span class='line'><span class="nv">$ </span>git push origin <span class="nb">source</span>
-</span><span class='line'><span class="nv">$ </span>rake deploy
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ol>
-<li><p>常用</p></li>
-<li><p> rake new_post[‘article name’] 生成博文框架，然后修改生成的文件即可</p></li>
-<li> rake generate 生成静态文件</li>
-<li> rake watch 检测文件变化，实时生成新内容</li>
-<li> rake preview 在本机4000端口生成访问内容</li>
-<li> rake deploy 发布文件</li>
-</ol>
-
-
-<p>7.参考
-<a href="http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/">devtang</a></p>
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/03/04/first/" title="Previous Post: first">&laquo; first</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -392,6 +276,7 @@
 
   
 </aside>
+
 
     </div>
   </div>
