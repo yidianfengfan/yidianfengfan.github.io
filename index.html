@@ -100,11 +100,15 @@
 
 <h2>bio</h2>
 
-<p>同步阻塞式IO,</p>
+<p>同步阻塞式IO。也就是说去问io有没有数据可读（阻塞），有从io中读取
+发起IO请求是阻塞的，
+读写数据也是阻塞的。</p>
 
 <h2>nio</h2>
 
-<p>同步非阻塞IO, <a href="http://en.wikipedia.org/wiki/Reactor_pattern">Reactor</a>,从程序角度而言，当发起IO的读或写操作时，是非阻塞的；当socket有流可读或可写入socket时，操作系统会相应的通知引用程序进行处理，应用再将流读取到缓冲区或写入操作系统。对于网络IO而言，主要有连接建立、流读取及流写入三种事件.</p>
+<p>同步非阻塞IO, <a href="http://en.wikipedia.org/wiki/Reactor_pattern">Reactor</a>,从程序角度而言，当发起IO的读或写操作时，是非阻塞的(注册了一个读写事件)；当socket有流可读或可写入socket时，操作系统会相应的通知引用程序进行处理，应用再将流读取到缓冲区或写入操作系统。对于网络IO而言，主要有连接建立、流读取及流写入三种事件.
+发起是一个注册事件，不会阻塞。
+读数据是要自己load阻塞。</p>
 
 <h4>select</h4>
 
@@ -187,29 +191,16 @@
 
 <p>异步IO方式, <a href="http://en.wikipedia.org/wiki/Proactor_pattern">Proactor模式</a>,从程序的角度而言，与NIO不同，当进行读写操作时，只须直接调用API的read或write方法即可。这两种方法均为异步的，对于读操作而言，当有流可读取时，操作系统会将可读的流传入read方法的缓冲区，并通知应用程序；对于写操作而言，当操作系统将write方法传递的流写入完毕时，操作系统主动通知应用程序。较之NIO而言，AIO一方面简化了程序出的编写，流的读取和写入都由操作系统来代替完成；另一方面省去了NIO中程序要遍历事件通知队列（selector）的代价。Windows基于[IOCP](<a href="http://en.wikipedia.org/wiki/Input/output_completion_port%EF%BC%89%E5%AE%9E%E7%8E%B0%E4%BA%86AIO%EF%BC%8CLinux%E7%9B%AE%E5%89%8D%E5%8F%AA%E6%9C%89%E5%9F%BA%E4%BA%8Eepoll%E5%AE%9E%E7%8E%B0%E7%9A%84AIO">http://en.wikipedia.org/wiki/Input/output_completion_port%EF%BC%89%E5%AE%9E%E7%8E%B0%E4%BA%86AIO%EF%BC%8CLinux%E7%9B%AE%E5%89%8D%E5%8F%AA%E6%9C%89%E5%9F%BA%E4%BA%8Eepoll%E5%AE%9E%E7%8E%B0%E7%9A%84AIO</a></p>
 
+<p>发起是一个注册事件，不会阻塞。
+读写数据也是事件通知。</p>
+
 <h2>补充</h2>
 
-<h4>同步异步、阻塞非阻塞不是同一种概念，同步和异步是消息的通知机制的概念，阻塞非阻塞是指进程的状态。<a href="http://www.cppblog.com/converse/archive/2009/05/13/82879.html">see</a></h4>
+<h4>同步异步、阻塞非阻塞不是同一种概念，</h4>
 
-<p>1 阻塞非阻塞 <a href="http://agio.iteye.com/blog/195548">see</a></p>
+<p>同步和异步是消息的通知机制的概念，阻塞非阻塞是指进程的状态。<a href="http://www.cppblog.com/converse/archive/2009/05/13/82879.html">see</a></p>
 
-<p>阻塞I/O, 当read数据时，如果这时没有数据可读，会一直等待有数据读，数据从kernel copy 到socket的buffer后返回；</p>
-
-<p>非阻塞I/O, 当read数据时会立即返回. kernel copy数据到socket buffer后，会以事件等通知程序read操作完成。</p>
-
-<p>关键就在于将数据从kernel copy到socket buffer这段时期，read操作是否阻塞，阻塞I/O是阻塞的，而异步I/O是不阻塞的。</p>
-
-<ul>
-<li>异步与同步的区别：异步不会引起request进程阻塞。而同步会。</li>
-<li>阻塞IO一定是同步的。</li>
-<li>非阻塞IO分为两种：同步和异步的。</li>
-<li>异步的非阻塞IO在read时，不管有无数据都直接返回。有数据了，会收到kernel copy的事件，来完成读取。</li>
-<li>同步的非阻塞IO在read时，也是等数据copy完才返回。</li>
-<li>由于非阻塞request不会一直与response保持连接，这样会降低response端压力，也就提高了并发性。</li>
-</ul>
-
-
-<p>2 <strong>同步和异步仅仅是关于所关注的消息如何通知的机制,而不是处理消息的机制.也就是说,同步的情况下,是由处理消息者自己去等待消息是否被触发,而异步的情况下是由触发机制来通知处理消息者</strong> 所以在异步机制中,处理消息者和触发机制之间就需要一个连接的桥梁,在我们举的例子中这个桥梁就是小纸条上面的号码,而在select/poll等IO多路复用机制中就是fd,当消息被触发时,触发机制通过fd找到处理该fd的处理函数.</p>
+<p><strong>同步和异步仅仅是关于所关注的消息如何通知的机制,而不是处理消息的机制.也就是说,同步的情况下,是由处理消息者自己去等待消息是否被触发,而异步的情况下是由触发机制来通知处理消息者</strong> 所以在异步机制中,处理消息者和触发机制之间就需要一个连接的桥梁,在我们举的例子中这个桥梁就是小纸条上面的号码,而在select/poll等IO多路复用机制中就是fd,当消息被触发时,触发机制通过fd找到处理该fd的处理函数.</p>
 
 <p>请注意理解<strong>消息通知</strong>和<strong>处理消息</strong>这两个概念,这是理解这个问题的关键所在.还是回到上面的例子,<em>轮到你办理业务</em>这个就是你关注的消息,而<em>去办理业务</em>就是对这个消息的处理,两者是有区别的.而在真实的IO操作时,所关注的消息就是该fd是否可读写,而对消息的处理就是对这个fd进行读写.同步/异步仅仅关注的是如何通知消息,它们对如何处理消息并不关心,好比说,银行的人仅仅通知你轮到你办理业务了,而如何办理业务他们是不知道的.</p>
 
